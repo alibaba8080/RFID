@@ -1,0 +1,15 @@
+apply plugin: 'maven'
+
+// ./gradlew uploadArchives 上传到maven仓库 for linux and mac    gradlew.bat uploadArchives  windows
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://127.0.0.1:8081/repository/maven-releases/") {
+                authentication(userName: "pst", password: "pst")
+            }
+            pom.groupId = 'cc.lecent.component'
+            pom.artifactId = 'rfid'
+            pom.version = '0.0.6'
+        }
+    }
+}
